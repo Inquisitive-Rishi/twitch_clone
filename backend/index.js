@@ -4,6 +4,8 @@ const cors = require('cors')
 const dotenv = require('dotenv');
 const { log } = require('console');
 
+const authRoutes = require('./src/routes/authRoutes.js')
+
 dotenv.config();
 
 const PORT = process.env.PORT || process.env.API_PORT;
@@ -15,9 +17,12 @@ app.use(cors())
 
 const server = http.createServer(app)
 
-app.use('/', (req,res) => {
-    res.send('Hello from the server')
+app.get('/', (req,res) => {
+    return res.send("Hello from the server")
 })
+
+app.use('/api/auth', authRoutes);
+
 
 server.listen(PORT, () => {
     console.log(`Server is currently listening in port ${PORT}`);
