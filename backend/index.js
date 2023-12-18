@@ -1,10 +1,9 @@
-const http = require('http')
-const express = require('express')
-const cors = require('cors')
-const dotenv = require('dotenv');
-const { log } = require('console');
+import http from 'http'
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
 
-const authRoutes = require('./src/routes/authRoutes.js')
+import authRoutes from './src/routes/authRoutes.js'
 
 dotenv.config();
 
